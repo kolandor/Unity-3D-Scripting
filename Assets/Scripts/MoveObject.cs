@@ -20,7 +20,13 @@ public class MoveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ExpandToTarget();
         MoveObjectToTarget();
+    }
+
+    void ExpandToTarget()
+    {
+        MovedObject.transform.LookAt(TargetPosition);
     }
 
     void MoveObjectToTarget()
