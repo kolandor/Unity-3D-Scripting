@@ -7,6 +7,8 @@ public class MoveObject : MonoBehaviour
 {
     public Transform TargetPosition;
 
+    public bool Move = true;
+
     public float Speed = 1;
 
     public bool SelfDeleteObjectByGoalTrget = false;
@@ -24,11 +26,14 @@ public class MoveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ExpandToTarget();
-
-        if (MoveObjectToTarget() <= SelfDeleteDistanceFromTarget && SelfDeleteObjectByGoalTrget)
+        if (TargetPosition != null)
         {
-            Destroy(gameObject, SelfDeleteTimeByGoalTrget);
+            ExpandToTarget();
+
+            if (Move && MoveObjectToTarget() <= SelfDeleteDistanceFromTarget && SelfDeleteObjectByGoalTrget)
+            {
+                Destroy(gameObject, SelfDeleteTimeByGoalTrget);
+            }
         }
     }
 
