@@ -156,5 +156,5 @@ MonoBehaviour:
   TargetObjectName: Car
   TargetDestroyObjectByGoalTrget: 1
   SelfDestroyObjectByGoalTrget: 0
-  DestroyDistanceFromTarget: 0.8
+  DestroyDistanceFromTarget: 1.3
   DestroyTimeByGoalTrget: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyObjectDestroyer : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class EnemyObjectDestroyer : MonoBehaviour
             {
                 Destroy(gameObject, DestroyTimeByGoalTrget);
             }
+
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
