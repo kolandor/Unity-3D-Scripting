@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyObjectDestroyer : MonoBehaviour
 {
-    public GameObject TargetObject;
+    public string TargetObjectName;
+    private GameObject _targetObject;
 
     public bool TargetDestroyObjectByGoalTrget = true;
 
@@ -16,17 +17,21 @@ public class EnemyObjectDestroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!string.IsNullOrEmpty(TargetObjectName))
+        {
+            _targetObject = GameObject.Find(TargetObjectName);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(TargetObject != null && 
-            Vector3.Distance(transform.position, TargetObject.transform.position) <= DestroyDistanceFromTarget)
+        if (_targetObject != null &&
+            Vector3.Distance(transform.position, _targetObject.transform.position) <= DestroyDistanceFromTarget)
         {
-            Destroy(TargetObject, DestroyTimeByGoalTrget);
+            Destroy(_targetObject, DestroyTimeByGoalTrget);
 
-            if(SelfDestroyObjectByGoalTrget)
+            if (SelfDestroyObjectByGoalTrget)
             {
                 Destroy(gameObject, DestroyTimeByGoalTrget);
             }

@@ -26,8 +26,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 0}
-  Move: 1
-  Speed: 4
+  Move: 0
+  MoveByKeySpace: 1
+  Speed: 2
   SelfDeleteObjectByGoalTrget: 1
   SelfDeleteDistanceFromTarget: 0.5
   SelfDeleteTimeByGoalTrget: 0
@@ -62,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56a6f7093820d544796f70535970c9ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56a6f7093820d544796f70535970c9ca,
         type: 3}

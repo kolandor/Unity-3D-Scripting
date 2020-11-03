@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Move: 1
-  Speed: 1
+  Speed: 2
   SelfDestroyByTime: 1
-  SelfDestroyTime: 20
+  SelfDestroyTime: 120
 --- !u!114 &1620926845168245041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9152cc8ac8995f04e9361d7b68979257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 0}
+  TargetObjectName: Car
   TargetDestroyObjectByGoalTrget: 1
   SelfDestroyObjectByGoalTrget: 0
-  DestroyDistanceFromTarget: 0.5
+  DestroyDistanceFromTarget: 0.8
   DestroyTimeByGoalTrget: 0
