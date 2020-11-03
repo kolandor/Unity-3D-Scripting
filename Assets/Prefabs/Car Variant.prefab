@@ -25,6 +25,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79501231e8390048b5802a332f349a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetPosition: {fileID: 0}
+  Move: 1
+  Speed: 4
+  SelfDeleteObjectByGoalTrget: 1
+  SelfDeleteDistanceFromTarget: 0.5
+  SelfDeleteTimeByGoalTrget: 0
 --- !u!1001 &185995832416034037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,7 +62,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56a6f7093820d544796f70535970c9ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.30765292
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56a6f7093820d544796f70535970c9ca,
         type: 3}
