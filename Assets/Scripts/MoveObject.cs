@@ -11,6 +11,12 @@ public class MoveObject : MonoBehaviour
 
     public float Speed = 1;
 
+    public bool SelfDeleteObjectByGoalTrget = false;
+
+    public float SelfDeleteDistanceFromTarget = 0.5f;
+
+    public float SelfDeleteTimeByGoalTrget = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +27,11 @@ public class MoveObject : MonoBehaviour
     void Update()
     {
         ExpandToTarget();
-        MoveObjectToTarget();
+
+        if (MoveObjectToTarget() <= SelfDeleteDistanceFromTarget && SelfDeleteObjectByGoalTrget)
+        {
+            Destroy(MovedObject, SelfDeleteTimeByGoalTrget);
+        }
     }
 
     void ExpandToTarget()
@@ -29,12 +39,14 @@ public class MoveObject : MonoBehaviour
         MovedObject.transform.LookAt(TargetPosition);
     }
 
-    void MoveObjectToTarget()
+    float MoveObjectToTarget()
     {
         Vector3 positionFrom = MovedObject.transform.position;
         Vector3 positionTo = TargetPosition.position;
         float currentSpeed = Time.deltaTime * Speed;
         MovedObject.transform.position = Vector3.MoveTowards(
             positionFrom, positionTo, currentSpeed);
+
+        return Vector3.Distance(positionFrom, positionTo);
     }
 }
