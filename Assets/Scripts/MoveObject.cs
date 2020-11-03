@@ -5,8 +5,6 @@ using UnityEngine.UIElements;
 
 public class MoveObject : MonoBehaviour
 {
-    private GameObject MovedObject;
-
     public Transform TargetPosition;
 
     public float Speed = 1;
@@ -20,7 +18,7 @@ public class MoveObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MovedObject = base.gameObject;
+
     }
 
     // Update is called once per frame
@@ -30,21 +28,21 @@ public class MoveObject : MonoBehaviour
 
         if (MoveObjectToTarget() <= SelfDeleteDistanceFromTarget && SelfDeleteObjectByGoalTrget)
         {
-            Destroy(MovedObject, SelfDeleteTimeByGoalTrget);
+            Destroy(gameObject, SelfDeleteTimeByGoalTrget);
         }
     }
 
     void ExpandToTarget()
     {
-        MovedObject.transform.LookAt(TargetPosition);
+        transform.LookAt(TargetPosition);
     }
 
     float MoveObjectToTarget()
     {
-        Vector3 positionFrom = MovedObject.transform.position;
+        Vector3 positionFrom = transform.position;
         Vector3 positionTo = TargetPosition.position;
         float currentSpeed = Time.deltaTime * Speed;
-        MovedObject.transform.position = Vector3.MoveTowards(
+        transform.position = Vector3.MoveTowards(
             positionFrom, positionTo, currentSpeed);
 
         return Vector3.Distance(positionFrom, positionTo);
