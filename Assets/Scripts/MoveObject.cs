@@ -7,7 +7,9 @@ public class MoveObject : MonoBehaviour
 {
     public Transform TargetPosition;
 
-    public bool Move = true;
+    public bool Move = false;
+
+    public bool MoveByKeySpace = true;
 
     public float Speed = 1;
 
@@ -28,11 +30,14 @@ public class MoveObject : MonoBehaviour
     {
         if (TargetPosition != null)
         {
-            ExpandToTarget();
-
-            if (Move && MoveObjectToTarget() <= SelfDeleteDistanceFromTarget && SelfDeleteObjectByGoalTrget)
+            if (Move ^ (MoveByKeySpace && Input.GetKey(KeyCode.Space)))
             {
-                Destroy(gameObject, SelfDeleteTimeByGoalTrget);
+                ExpandToTarget();
+
+                if (MoveObjectToTarget() <= SelfDeleteDistanceFromTarget && SelfDeleteObjectByGoalTrget)
+                {
+                    Destroy(gameObject, SelfDeleteTimeByGoalTrget);
+                }
             }
         }
     }
