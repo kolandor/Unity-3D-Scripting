@@ -21,6 +21,10 @@ public class EnemyObjectDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(TargetObject != null && 
+            Vector3.Distance(transform.position, TargetObject.transform.position) <= DestroyDistanceFromTarget)
+        {
+            Destroy(TargetObject, DestroyTimeByGoalTrget);
+        }
     }
 }
