@@ -25,6 +25,11 @@ public class EnemyObjectDestroyer : MonoBehaviour
             Vector3.Distance(transform.position, TargetObject.transform.position) <= DestroyDistanceFromTarget)
         {
             Destroy(TargetObject, DestroyTimeByGoalTrget);
+
+            if(SelfDestroyObjectByGoalTrget)
+            {
+                Destroy(gameObject, DestroyTimeByGoalTrget);
+            }
         }
     }
 }
